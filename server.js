@@ -20,10 +20,7 @@ app.get('/status', function (req, res, next)
 
 app.get('/', function (req, res, next)
 {
-  var data = fs.readFileSync(__dirname + '/index.html');
-  res.status(200);
-  res.header('Content-Type', 'text/html');
-  res.end(data.toString().replace(/host:port/g, req.header('Host')));
+  res.send('Hello World!')
 });
 
 app.get(/\/(css|js|img)\/?.*/, restify.serveStatic({directory: __dirname+'/static'}));
